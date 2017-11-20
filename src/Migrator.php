@@ -174,12 +174,14 @@ class Migrator
         foreach ($externalSchemaTable as $column => $description) {
             if ($column !== 'id') {
                 if (!array_key_exists($column, $this->entitiesSchema->getTableDescription($table))) {
+
                     /**
                      * Si la clé 'removed' n'existe pas encore, on la créée
                      */
                     if (!array_key_exists('removed', $tmpArray)) {
                         $tmpArray['removed'] = [];
                     }
+
                     /**
                      * On ajoute la colonne supprimée à la réponse
                      */
